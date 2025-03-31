@@ -1,0 +1,39 @@
+{
+  "testCases": [
+    {
+      "testCaseID": "TC001",
+      "title": "Đăng nhập thành công - Thông tin đăng nhập chính xác",
+      "description": "Mô tả: Kiểm tra tính năng đăng nhập thành công khi thông tin đăng nhập chính xác.",
+      "steps": [
+        {
+          "action": "navigate",
+          "target": "URL/LoginPage"
+        },
+        {
+          "action": "fill",
+          "target": "username",
+          "value": "user_name"
+        },
+        {
+          "action": "fill",
+          "target": "password",
+          "value": "password"
+        },
+        {
+          "action": "click",
+          "target": "loginButton"
+        },
+        {
+          "action": "expect",
+          "target": "selector",
+          "value": "success_message"
+        },
+        {
+          "action": "assert",
+          "target": "selector",
+          "value": "success_message"
+        }
+      ]
+    }
+  ]
+}
