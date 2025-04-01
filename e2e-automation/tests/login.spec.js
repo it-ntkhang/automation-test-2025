@@ -1,5 +1,7 @@
-import { test, expect } from "../utils/Login/fixture.js";
+import { test, expect } from "../fixtures/Login/fixture.js";
+import config from "../env/index.js";
 
 test("Login Test", async ({ loginPage }) => {
-    expect(await loginPage.page.url()).toBe("https://example.com/home");
+    await loginPage.page.waitForLoadState();
+    expect(await loginPage.page.url()).toBe(config.BASE_URL+ "customers");
 });

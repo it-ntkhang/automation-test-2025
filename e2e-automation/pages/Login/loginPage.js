@@ -1,3 +1,5 @@
+
+
 class LoginPage {
     constructor(page) {
         this.page = page;
@@ -6,8 +8,8 @@ class LoginPage {
         this.loginButton = "#btn-submit-login";
     }
 
-    async goToLoginPage() {
-        await this.page.goto("https://larabot.myharavan.com/admin");
+    async goToLoginPage(BASE_URL) {
+        await this.page.goto(BASE_URL);
     }
 
     async enterUsername(username) {

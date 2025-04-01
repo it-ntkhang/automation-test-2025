@@ -1,0 +1,1 @@
+// Các hàm tiện ích (ví dụ: tạo dữ liệu ngẫu nhiên, chờ đợi)
