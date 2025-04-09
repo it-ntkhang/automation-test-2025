@@ -1,7 +1,7 @@
-import { writeFileSync } from "fs";
+import { writeFileSync, readFileSync } from "fs";
 import OpenAI from "openai";
 import { NextResponse } from 'next/server';
-import { basicPrompt, allPrompt, formatPrompt } from '../../prompt';
+import { basicPrompt, formatPrompt } from '../../prompts/prompt';
 
 function createLLMClient(baseURL = "http://localhost:11434/v1", apiKey = "test") {
   return new OpenAI({ baseURL, apiKey });
@@ -24,10 +24,16 @@ export async function POST(request) {
 
     // Sử dụng prompt từ file prompt.js
     const prompt = formatPrompt(basicPrompt, { feature, testType });
+    const knowledge = JSON.parse(readFileSync("docs/knowledge.json", "utf8")).content;
+
+    const fullPrompt = `
+      Hướng dẫn: Dưới đây là tài liệu hệ thống:\n${knowledge}\n
+      Câu hỏi: Dựa vào tài liệu trên, hãy viết test case Playwright cho tình huống: ${prompt}
+      Kết quả:`;
 
     const openAIClient = createLLMClient();
     const completion = await openAIClient.chat.completions.create({
-      messages: [{ role: "system", content: prompt }],
+      messages: [{ role: "system", content: fullPrompt }],
       model: "gemma3:1b",
       temperature: 0.5,
     });

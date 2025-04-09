@@ -1,33 +1,25 @@
 {
-  "testCases": [
+  "testCaseID": "TC001",
+  "title": "Tạo mới khách hàng",
+  "description": "Mô tả chi tiết",
+  "steps": [
     {
-      "testCaseID": "TC001",
-      "title": "Kiểm tra hiển thị danh sách khách hàng thành công",
-      "description": "Đảm bảo danh sách khách hàng được hiển thị chính xác khi người dùng nhập thông tin.",
-      "steps": [
-        {
-          "action": "navigate",
-          "target": "URL/Page/Dashboard"
-        },
-        {
-          "action": "fill",
-          "target": "selector",
-          "value": "data"
-        },
-        {
-          "action": "click",
-          "target": "selector"
-        },
-        {
-          "action": "wait",
-          "duration": "2s"
-        },
-        {
-          "action": "expect",
-          "target": "selector",
-          "value": "Expected Result:  Danh sách khách hàng hiển thị các thông tin chính xác (ví dụ: tên, số điện thoại, email, ID khách hàng)"
-        }
-      ]
+      "action": "navigate",
+      "target": "URL"
+    },
+    {
+      "action": "fill",
+      "target": "selector",
+      "value": "data"
+    },
+    {
+      "action": "click",
+      "target": "selector"
+    },
+    {
+      "action": "expect",
+      "target": "selector",
+      "value": "expected result"
     }
   ]
 }
